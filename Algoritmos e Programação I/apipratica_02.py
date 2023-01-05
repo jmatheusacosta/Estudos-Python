@@ -1,29 +1,27 @@
-#AULA PRÁTICA
+matriz = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+somap = mai = somt = 0
 
-print("------------QUESTÃO 1------------")
+for l in range(0, 3):
+    for c in range(0, 3):
+        matriz[l][c] = int(input(f"Digite um valor para [{l}, {c}]:  "))
+print("--" * 30)
 
-price1 = float(input("Digite o preço antigo: "))
+for l in range(0, 3):
+    for c in range(0, 3):
+        print(f"[{matriz[l][c]:^5}]", end='')
+        if matriz[l][c] % 2 == 0:
+            somap += matriz[l][c]
 
-print(f'O preço com o desconto de 10% é: R$ {price1*0.9 :.2f}')
+        if c == 2:
+            somt += matriz[l][c]
 
-print("------------QUESTÃO 2------------")
+        if l == 1:
+            mai = matriz[l][c]
+            if matriz[l][c] > mai:
+                mai = matriz[l][c]
+    print()
 
-fix_sal = float(input("Digite o salário fixo:  "))
-sales = float(input("Digite o valor arrecadado em vendas:  "))
-
-print(f'O salário final é R$ {fix_sal + (sales*0.05) :.2f}')
-
-print("------------QUESTÃO 3------------")
-
-past_w = float(input("Digite seu peso a 3 meses atrás:  "))
-today_w = float(input("Digite seu peso hoje em dia:  "))
-
-print(f"Sua mudança de peso foi de: {((today_w*100)/past_w)-100 :.2f}%")
-
-print("------------QUESTÃO 4------------")
-
-bigger_s = int(input("Digite o tamanho do lado maior do trapézio:  "))
-smaller_s = int(input("Digite o tamanho do lado menor do trapézio:  "))
-height_t = int(input("Digite a altura do trapézio:  "))
-
-print("A área do trapézio é: ", ((bigger_s+smaller_s)*height_t)/2)
+print("--" * 30)
+print("A soma dos valores pares é", somap)
+print("A soma dos valores da 3ª coluna é", somt)
+print("O maior valor da 2ª linha é", mai)
